@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peminjaman Buku Perpustakaan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      margin: 30px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .success {
+      background: #dff0d8;
+      color: #3c763d;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Formulir Peminjaman Buku
+  </header>
+
+  <div class="container">
+    <form id="loanForm">
+      <label for="nama">Nama Peminjam:</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
+
+      <label for="judul">Judul Buku:</label>
+      <input type="text" id="judul" name="judul" placeholder="Masukkan judul buku" required />
+
+      <label for="tanggalPinjam">Tanggal Peminjaman:</label>
+      <input type="date" id="tanggalPinjam" name="tanggalPinjam" required />
+
+      <label for="tanggalKembali">Tanggal Pengembalian:</label>
+      <input type="date" id="tanggalKembali" name="tanggalKembali" required />
+
+      <button type="submit">Pinjam Buku</button>
+    </form>
+
+    <div class="success" id="successMessage" style="display: none;">
+      Peminjaman berhasil disimpan!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loanForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('successMessage').style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
